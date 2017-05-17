@@ -1,4 +1,5 @@
-# coding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # 13. col1.txtとcol2.txtをマージ
 # 12で作ったcol1.txtとcol2.txtを結合し，

@@ -1,4 +1,5 @@
-# coding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # 12. 1列目をcol1.txtに，2列目をcol2.txtに保存
 # 各行の1列目だけを抜き出したものをcol1.txtに，
