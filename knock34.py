@@ -5,7 +5,7 @@
 
 import knock30
 
-result = knock30.morpho("documents/neko.mecab")
+result = knock30.morpho("data/neko.mecab")
 for sentence in result:
     for i in range(len(sentence)-2):
         if sentence[i]['pos'] == "名詞" and sentence[i+1]['surface'] == "の" and sentence[i+2]['pos'] == "名詞":

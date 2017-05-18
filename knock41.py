@@ -72,7 +72,7 @@ def CreateChunkList(sourcefile):
 
 if __name__ == '__main__':
 
-    sentence = CreateChunkList('documents/neko.cabocha')
+    sentence = CreateChunkList('data/neko.cabocha')
 
     n = raw_input('input sentence # : ')
     N = int(n)

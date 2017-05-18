@@ -7,24 +7,19 @@
 # 確認にはcutコマンドを用いよ．
 
 
-f = open('documents/hightemp.txt')
-lines = f.readlines()  # ファイル終端まで全て読んだデータを返す
-f.close()
-
 str1 = ''
 str2 = ''
-for line in lines:
+for line in open('data/hightemp.txt', 'r'):
     str0 = line.split('\t')
     str1 += str0[0] + '\n'
     str2 += str0[1] + '\n'
 
-f1 = open('documents/col1.txt', 'w')
-f2 = open('documents/col2.txt', 'w')
+f1 = open('data/col1.txt', 'w')
+f2 = open('data/col2.txt', 'w')
 f1.write(str1)
 f2.write(str2)
 f1.close()
 f2.close()
 
-print "made documents"
 
 

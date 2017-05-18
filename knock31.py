@@ -5,7 +5,7 @@
 
 import knock30
 
-result = knock30.morpho("documents/neko.mecab")
+result = knock30.morpho("data/neko.mecab")
 for sentence in result:
     for morph_dict in sentence:
         if morph_dict['pos'] == "動詞":

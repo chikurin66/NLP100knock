@@ -9,7 +9,7 @@ import re
 template = {}
 kiso_flag = False
 
-for line in open("documents/jawiki-country-uk.txt"):
+for line in open("data/jawiki-country-uk.txt"):
     if re.search(r"基礎情報", line):
         kiso_flag = True
     if re.match(r"\}\}", line):
@@ -17,7 +17,7 @@ for line in open("documents/jawiki-country-uk.txt"):
     if kiso_flag:
         match = re.search(r"(.*)\s=\s(.*)", line)
         if match:
-            template.update({match.group(1):match.group(2).replace("'''''","").replace("'''","").replace("''","")})
+            template.update({match.group(1):match.group(2).replace("'''''", "").replace("'''", "").replace("''", "")})
 
 for key, value in template.iteritems():
     print "%s = %s" %(key,value)

@@ -6,11 +6,11 @@
 
 import sys
 
-f = open('documents/hightemp.txt')
+f = open('data/hightemp.txt')
 lines = f.readlines()
 f.close()
 
-n = raw_input('imput N : ')
+n = raw_input('input N : ')
 N = int(n)
 
 for i in range(1, N+1):

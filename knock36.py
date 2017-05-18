@@ -21,6 +21,6 @@ def Create_freq_dict(data_path):
 
 if __name__ == '__main__':
 
-    freq_dict = Create_freq_dict("documents/neko.mecab")
+    freq_dict = Create_freq_dict("data/neko.mecab")
     for key, value in sorted(freq_dict.items(), key=lambda x:x[1], reverse=True):
         print key,value

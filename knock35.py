@@ -6,7 +6,7 @@
 
 import knock30
 
-result = knock30.morpho("documents/neko.mecab")
+result = knock30.morpho("data/neko.mecab")
 continue_flag = False
 for sentence in result:
     for i in range(len(sentence)-1):

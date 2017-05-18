@@ -16,8 +16,8 @@ import random
 
 
 def labeling():
-    neg = ["-1 %s" % line.rstrip() for line in open('documents/rt-polarity.neg','r')]
-    pos = ["+1 %s" % line.rstrip() for line in open('documents/rt-polarity.pos','r')]
+    neg = ["-1 %s" % line.rstrip() for line in open('data/rt-polarity.neg','r')]
+    pos = ["+1 %s" % line.rstrip() for line in open('data/rt-polarity.pos','r')]
     pol = neg + pos
     random.shuffle(pol)
     return pol
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     pol = labeling()
 
-    output = open('documents/sentiment.txt','w')
+    output = open('data/sentiment.txt','w')
 
     for item in pol:
         output.write("%s\n" % item)

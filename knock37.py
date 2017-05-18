@@ -8,7 +8,7 @@ import knock36
 import matplotlib.pyplot as plt
 
 
-freq_dict = knock36.Create_freq_dict("documents/neko.mecab")
+freq_dict = knock36.Create_freq_dict("data/neko.mecab")
 
 count = 0
 v = []

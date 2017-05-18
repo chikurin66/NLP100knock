@@ -6,20 +6,13 @@
 
 import sys
 
-f = open('documents/hightemp.txt')
+f = open('data/hightemp.txt')
 line = f.readline()
 
-
-n = raw_input('imput N : ')
+n = raw_input('input N : ')
 N = int(n)
 
 for i in range(0, N):
     sys.stdout.write(line)
     line = f.readline()
-
 f.close()
-
-
-
-
-

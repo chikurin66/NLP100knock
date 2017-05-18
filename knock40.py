@@ -40,7 +40,7 @@ if __name__ == '__main__':
     repattern = re.compile(pattern)
     words = []
     sentence = []
-    for line in open('documents/neko.cabocha','r'):
+    for line in open('data/neko.cabocha','r'):
         if line != 'EOS\n':
             a = repattern.match(line)
             if a != None:

@@ -13,10 +13,10 @@
 import MeCab
 
 def CreateMecabFile():
-    m = open("documents/neko.mecab","w")
+    m = open("data/neko.mecab","w")
     text = ""
     me = MeCab.Tagger('mecabrc')
-    for line in open("documents/neko.txt","r"):
+    for line in open("data/neko.txt","r"):
         text += me.parse(line)
     m.write(text)
     m.close()
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     # preparation for 30
     CreateMecabFile()
 
-    sentence_morph_list = morpho("documents/neko.mecab")
+    sentence_morph_list = morpho("data/neko.mecab")
     print len(sentence_morph_list)
     for i in range(20):
         for j in sentence_morph_list[i]:

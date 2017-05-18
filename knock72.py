@@ -20,7 +20,7 @@ def extractFeatures(filename):
     # 特徴をディクショナリー型で抽出．リストで集めつので単語の重複も考慮される．
     pos_features = []
     neg_features = []
-    for line in open('documents/' + filename + '.txt', 'r'):
+    for line in open('data/' + filename + '.txt', 'r'):
         label = line[:2]
         try:
             if label == '+1':

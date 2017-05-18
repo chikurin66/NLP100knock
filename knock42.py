@@ -40,7 +40,7 @@ def CreateDependency(sentences):
     return dependencies
 
 if __name__ == '__main__':
-    sentences = knock41.CreateChunkList('documents/neko.cabocha')
+    sentences = knock41.CreateChunkList('data/neko.cabocha')
 
     dependencies = CreateDependency(sentences)
 

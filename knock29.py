@@ -11,7 +11,7 @@ template = {}
 kiso_flag = False
 string = ""
 
-for line in open("documents/jawiki-country-uk.txt"):
+for line in open("data/jawiki-country-uk.txt"):
     if re.search(r"基礎情報", line):
         kiso_flag = True
     if re.match(r"\}\}", line):
@@ -19,16 +19,16 @@ for line in open("documents/jawiki-country-uk.txt"):
     if kiso_flag:
         match = re.search(r"(.*)\s=\s(.*)", line)
         if match:
-            string = re.sub(r"(\[\[)|(\]\])", "", match.group(2).replace("'''''","").replace("'''","").replace("''",""))
-            string = string.replace("<br","").replace("/>","")
+            string = re.sub(r"(\[\[)|(\]\])", "", match.group(2).replace("'''''", "").replace("'''", "").replace("''", ""))
+            string = string.replace("<br","").replace("/>", "")
             string2 = re.search(r"(.*)<ref(.*)", string)
             if string2:
                 string = string2.group(1)
-            template.update({match.group(1).replace("|",""):string})
+            template.update({match.group(1).replace("|", ""): string})
 
 
-print "https://upload.wikimedia.org/wikipedia/en/a/ae/" + template["国旗画像"].replace(" ","_")
-# 苦し紛れに上記の方法で実行したが、、、
+print "https://upload.wikimedia.org/wikipedia/en/a/ae/" + template["国旗画像"].replace(" ", "_")
+# 苦し紛れに上記の方法で実行した...
 # 下記の手法の方がよさそうだが意味がわからない。
 url = "http://ja.wikipedia.org/w/api.php?format=json&action=query&titles=Image:%s&prop=imageinfo&iiprop=url"
 response = urllib.urlopen(url % template["国旗画像"]).read()
