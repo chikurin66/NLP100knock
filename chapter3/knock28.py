@@ -9,13 +9,13 @@ template = {}
 kiso_flag = False
 string = ""
 
-for line in open("data/jawiki-country-uk.txt"):
+for line in open("../data/jawiki-country-uk.txt"):
     if re.search(r"基礎情報", line):
         kiso_flag = True
     if re.match(r"\}\}", line):
         kiso_flag = False
     if kiso_flag:
-        match = re.search(r"(.*)\s=\s(.*)", line)
+        match = re.search(r"(.*)\s=\s(.*)", line, flags=re.DOTALL)
         if match:
             string = re.sub(r"(\[\[)|(\]\])", "", match.group(2).replace("'''''", "").replace("'''", "").replace("''", ""))
             string = string.replace("<br","").replace("/>","")

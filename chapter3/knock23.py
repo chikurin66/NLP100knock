@@ -7,7 +7,7 @@
 import re
 pattern = r"^(=+)(.*?)(=+)"
 repattern = re.compile(pattern)
-for line in open('data/jawiki-country-uk.txt','r'):
+for line in open('../data/jawiki-country-uk.txt','r'):
     match = repattern.search(line)
     if match:
         elements = match.groups()
@@ -21,7 +21,7 @@ import re
 pattern = r"=(=+)([^=]*)(=+)"
 
 repattern = re.compile(pattern)
-for line in open('data/jawiki-country-uk.txt','r'):
+for line in open('../data/jawiki-country-uk.txt','r'):
     match = repattern.search(line)
     if match:
         elements = match.groups()

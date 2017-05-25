@@ -6,9 +6,9 @@
 
 import json
 
-w = open('data/jawiki-country-uk.txt','w')
+w = open('../data/jawiki-country-uk.txt','w')
 
-for line in open('data/jawiki-country.json','r'):
+for line in open('../data/jawiki-country.json','r'):
     record = json.loads(line)
     if record['title'] == u"イギリス":
         # avoid codec error

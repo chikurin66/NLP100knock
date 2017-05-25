@@ -6,7 +6,7 @@
 import re
 pattern = r"(File:([^|]*))|(ファイル:([^|]*))"
 repattern = re.compile(pattern)
-for line in open("data/jawiki-country-uk.txt"):
+for line in open("../data/jawiki-country-uk.txt"):
     match = repattern.search(line)
     if match:
         print match.group(1) if match.group(3) is None else match.group(3)

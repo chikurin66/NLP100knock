@@ -6,7 +6,7 @@
 import re
 pattern = r"Category:"
 repattern = re.compile(pattern)
-for line in open('data/jawiki-country-uk.txt','r'):
+for line in open('../data/jawiki-country-uk.txt','r'):
     match = repattern.search(line)
     if match:
         print line,

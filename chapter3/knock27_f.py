@@ -8,7 +8,7 @@ import re
 template = {}
 kiso_flag = False
 
-for line in open("data/jawiki-country-uk.txt"):
+for line in open("../data/jawiki-country-uk.txt"):
     if re.search(r"基礎情報", line):
         kiso_flag = True
     if re.match(r"\}\}", line):
