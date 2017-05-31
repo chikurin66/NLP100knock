@@ -5,7 +5,7 @@
 
 
 str_set = set()
-for line in open('data/hightemp.txt', 'r'):
+for line in open('../data/hightemp.txt', 'r'):
     str_set.add(line.split('\t')[0])
 
 for x in str_set:

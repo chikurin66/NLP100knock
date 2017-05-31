@@ -6,7 +6,7 @@
 
 
 str_list = []
-for line in open('data/hightemp.txt', 'r'):
+for line in open('../ata/hightemp.txt', 'r'):
     str_list.append(line.split('\t')[0])
 
 result = {}

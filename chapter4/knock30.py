@@ -13,10 +13,10 @@
 import MeCab
 
 def CreateMecabFile():
-    m = open("data/neko.mecab","w")
+    m = open("data/neko.mecab", "w")
     text = ""
     me = MeCab.Tagger('mecabrc')
-    for line in open("data/neko.txt","r"):
+    for line in open("data/neko.txt", "r"):
         text += me.parse(line)
     m.write(text)
     m.close()

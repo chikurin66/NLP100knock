@@ -5,7 +5,7 @@
 # 確認にはsortコマンドを用いよ（この問題はコマンドで実行した時の結果と合わなくてもよい）．
 
 
-f = open('data/hightemp.txt')
+f = open('../data/hightemp.txt')
 lines = f.readlines()
 f.close()
 

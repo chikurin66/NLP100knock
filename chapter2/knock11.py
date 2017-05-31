@@ -6,7 +6,7 @@
 # 確認にはsedコマンド，trコマンド，もしくはexpandコマンドを用いよ．
 
 
-f = open('data/hightemp.txt')
+f = open('../data/hightemp.txt')
 data = f.read()  # ファイル終端まで全て読んだデータを返す
 f.close()
 

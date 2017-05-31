@@ -7,7 +7,7 @@
 
 import math
 
-f = open('data/hightemp.txt')
+f = open('../data/hightemp.txt')
 lines = f.readlines()
 f.close()
 

@@ -6,7 +6,7 @@
 
 import sys
 
-f = open('data/hightemp.txt')
+f = open('../data/hightemp.txt')
 line = f.readline()
 
 n = raw_input('input N : ')
