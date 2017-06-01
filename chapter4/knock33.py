@@ -5,8 +5,10 @@
 
 import knock30
 
-result = knock30.morpho("data/neko.mecab")
+result = knock30.morpho("../data/neko.mecab")
 for sentence in result:
     for morph_dict in sentence:
         if morph_dict['pos1'] == "サ変接続":
             print morph_dict['surface']
+
+

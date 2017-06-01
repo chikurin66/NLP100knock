@@ -11,25 +11,22 @@
 # 第4章の残りの問題では，ここで作ったプログラムを活用せよ．
 
 import MeCab
+import re
 
 def CreateMecabFile():
-    m = open("data/neko.mecab", "w")
+    m = open("../data/neko.mecab", "w")
     text = ""
     me = MeCab.Tagger('mecabrc')
-    for line in open("data/neko.txt", "r"):
+    for line in open("../data/neko.txt", "r"):
         text += me.parse(line)
     m.write(text)
     m.close()
 
 
-
-import re
-
 def morpho(data_path):
     result = []
     sentence = []
-    morph_dict = {}
-    for line in open(data_path,"r"):
+    for line in open(data_path, "r"):
         if line == "EOS\n":
             result.append(sentence)
             sentence = []
@@ -37,10 +34,10 @@ def morpho(data_path):
         else:
             morph = re.split(r",|\t", line)
             morph_dict = {
-                'surface':morph[0],
-                'base':morph[7],
-                'pos':morph[1],
-                'pos1':morph[2]
+                'surface': morph[0],
+                'base': morph[7],
+                'pos': morph[1],
+                'pos1': morph[2]
             }
             sentence.append(morph_dict)
 
@@ -50,7 +47,7 @@ if __name__ == '__main__':
     # preparation for 30
     CreateMecabFile()
 
-    sentence_morph_list = morpho("data/neko.mecab")
+    sentence_morph_list = morpho("../data/neko.mecab")
     print len(sentence_morph_list)
     for i in range(20):
         for j in sentence_morph_list[i]:

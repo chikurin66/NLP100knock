@@ -8,15 +8,15 @@ import knock36
 import matplotlib.pyplot as plt
 
 
-freq_dict = knock36.Create_freq_dict("data/neko.mecab")
+freq_dict = knock36.Create_freq_dict("../data/neko.mecab")
 
-labels =[]
-height =[]
-maxValue = sorted(freq_dict.items(), key=lambda x:x[1], reverse=True)[0][1]
+labels = []
+height = []
+maxValue = sorted(freq_dict.values(), reverse=True)[0]
 
 currentValue = 1
 counter = 0
-for key, value in sorted(freq_dict.items(), key=lambda x:x[1]):
+for key, value in sorted(freq_dict.items(), key=lambda x: x[1]):
     if currentValue != value:
         labels.append(currentValue)
         height.append(counter)
@@ -26,16 +26,16 @@ for key, value in sorted(freq_dict.items(), key=lambda x:x[1]):
 labels.append(currentValue)
 height.append(counter)
 
-n = raw_input('imput N to make groups : ')
+n = raw_input('input # of group: ')
 N = int(n)
 g_labels = []
 g_height = []
 a = maxValue / N
 b = maxValue % N
 c = 0
-# for i in range(N):
-print maxValue
-print a,"*", N, "+", b, "=", a*N+b
+
+print "maxValue:", maxValue
+print a, "*", N, "+", b, "=", a*N+b
 
 sum = 0
 a += 1
@@ -47,7 +47,7 @@ for l, h in zip(labels, height):
         sum += h
     else:
         while l >= th:
-            print "group was changed()"
+            print "group was changed"
             g_labels.append(th)
             th += a
             g_height.append(sum)
