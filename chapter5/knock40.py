@@ -9,7 +9,7 @@ import CaboCha
 def prepare_CaboChaFile(sourcefile, outputfile):
     c = CaboCha.Parser()
     result = []
-    for sentence in open(sourcefile,'r'):
+    for sentence in open(sourcefile, 'r'):
         tree = c.parse(sentence)
         result += tree.toString(CaboCha.FORMAT_LATTICE)
     w = open(outputfile, 'w')
@@ -22,7 +22,9 @@ def prepare_CaboChaFile(sourcefile, outputfile):
 # をメンバ変数に持つこととする．さらに，CaboChaの解析結果（neko.txt.cabocha）を読み込み，
 # 各文をMorphオブジェクトのリストとして表現し，3文目の形態素列を表示せよ．
 
+
 import re
+
 
 class Morph:
 
@@ -31,6 +33,7 @@ class Morph:
         self.base = base
         self.pos = pos
         self.pos1 = pos1
+
 
 if __name__ == '__main__':
 
