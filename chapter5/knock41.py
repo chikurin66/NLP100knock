@@ -9,6 +9,7 @@
 
 import re
 
+
 class Morph:
 
     def __init__(self, surface, base, pos, pos1):
@@ -16,6 +17,7 @@ class Morph:
         self.base = base
         self.pos = pos
         self.pos1 = pos1
+
 
 class Chunk:
 
@@ -36,7 +38,7 @@ def CreateChunkList(sourcefile):
     for line in open(sourcefile, 'r'):
         if line != 'EOS\n':
             a = repattern.match(line)
-            if a == None:
+            if a is None:
                 str1 = re.split(r'\t|,', line)
                 morphs.append(Morph(str1[0], str1[6], str1[1], str1[2]))
 
@@ -51,11 +53,11 @@ def CreateChunkList(sourcefile):
 
                     str2 = re.split(r'\s|\t', line)
                     dst = str2[2].rstrip('D')
-                    try:
+                    if dst in srcs:
                         srcs[dst].append(int(str2[1]))
-                    except:
+                    else:
                         srcs[dst] = [int(str2[1])]
-                        # srcs[dst].append(int(str2[1]))
+
         else:
             if len(morphs) > 0:
                 if str2[1] in srcs:
@@ -72,7 +74,7 @@ def CreateChunkList(sourcefile):
 
 if __name__ == '__main__':
 
-    sentence = CreateChunkList('data/neko.cabocha')
+    sentence = CreateChunkList('../data/neko.cabocha')
 
     n = raw_input('input sentence # : ')
     N = int(n)

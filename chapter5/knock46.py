@@ -69,7 +69,7 @@ if __name__ == '__main__':
         見た -1 None 見る
     '''
     for chunk, dest, part, verb in word_dest:
-        if part != "None":
+        if part != "":
             dest_v = word_dest[dest][3]
             if dest_v != "None":
                 if dest_v not in kaku_dict:

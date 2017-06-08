@@ -37,16 +37,16 @@ class Morph:
 
 if __name__ == '__main__':
 
-    # prepare_CaboChaFile('documents/neko.txt', 'documents/neko.cabocha')
+    prepare_CaboChaFile('../data/neko.txt', '../data/neko.cabocha')
 
     pattern = r'\*'
     repattern = re.compile(pattern)
     words = []
     sentence = []
-    for line in open('data/neko.cabocha','r'):
+    for line in open('../data/neko.cabocha','r'):
         if line != 'EOS\n':
             a = repattern.match(line)
-            if a != None:
+            if a is not None:
                 if a.start() == 0:
                     continue
             str1 = re.split(r'\t|,', line)

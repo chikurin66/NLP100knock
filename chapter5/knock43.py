@@ -4,28 +4,11 @@
 # 名詞を含む文節が，動詞を含む文節に係るとき，これらをタブ区切り形式で抽出せよ．ただし，句読点などの記号は出力しないようにせよ．
 
 
-
-import re
 import knock41
-
-class Morph:
-
-    def __init__(self, surface, base, pos, pos1):
-        self.surface = surface
-        self.base = base
-        self.pos = pos
-        self.pos1 = pos1
-
-class Chunk:
-
-    def __init__(self, morphs, dst, srcs):
-        self.morphs = morphs
-        self.dst = dst
-        self.srcs = srcs
 
 
 if __name__ == '__main__':
-    sentences = knock41.CreateChunkList('data/neko.cabocha')
+    sentences = knock41.CreateChunkList('../data/neko.cabocha')
 
     dependencies = []
     str1 = []

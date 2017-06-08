@@ -83,6 +83,6 @@ if __name__ == '__main__':
                     kaku_dict[dest_v] += " " + part
 
     for k, v in kaku_dict.items():
-        print k, v
+        print k + "\t" + v
 
 
