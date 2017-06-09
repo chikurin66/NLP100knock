@@ -8,16 +8,7 @@
 # 8文目の文節の文字列と係り先を表示せよ．第5章の残りの問題では，ここで作ったプログラムを活用せよ．
 
 import re
-
-
-class Morph:
-
-    def __init__(self, surface, base, pos, pos1):
-        self.surface = surface
-        self.base = base
-        self.pos = pos
-        self.pos1 = pos1
-
+from knock40 import Morph
 
 class Chunk:
 
@@ -25,6 +16,11 @@ class Chunk:
         self.morphs = morphs
         self.dst = dst
         self.srcs = srcs
+
+    def show(self):
+        for morph in self.morphs:
+            print morph.show_surface()
+        print ""
 
 
 def CreateChunkList(sourcefile):
@@ -74,18 +70,22 @@ def CreateChunkList(sourcefile):
 
 if __name__ == '__main__':
 
-    sentence = CreateChunkList('../data/neko.cabocha')
+    sentences = CreateChunkList('../data/neko.cabocha')
 
     n = raw_input('input sentence # : ')
     N = int(n)
 
-    for x in sentence[N]:
+    for x in sentences[N]:
         for y in x.morphs:
             print y.surface,
         print "/",
     print ""
-    for x in sentence[N]:
+    for x in sentences[N]:
         print x.dst,
     print ""
-    for x in sentence[N]:
+    for x in sentences[N]:
         print x.srcs,
+    print ""
+
+    for chunk in sentences[N]:
+        chunk.show()

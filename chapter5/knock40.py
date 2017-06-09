@@ -34,27 +34,55 @@ class Morph:
         self.pos = pos
         self.pos1 = pos1
 
+    def show(self):
+        print '\t'.join([self.surface, self.base, self.pos, self.pos1])
+
+    def show_surface(self):
+        print self.surface,
+
+    def show_base(self):
+        print self.base,
+
+    def show_pos(self):
+        print self.pos,
+
+    def show_pos1(self):
+        print self.pos1,
+
 
 if __name__ == '__main__':
 
-    prepare_CaboChaFile('../data/neko.txt', '../data/neko.cabocha')
+    # prepare_CaboChaFile('../data/neko.txt', '../data/neko.cabocha')
 
     pattern = r'\*'
     repattern = re.compile(pattern)
     words = []
-    sentence = []
-    for line in open('../data/neko.cabocha','r'):
+    sentences = []
+    for line in open('../data/neko.cabocha', 'r'):
         if line != 'EOS\n':
             a = repattern.match(line)
             if a is not None:
                 if a.start() == 0:
                     continue
             str1 = re.split(r'\t|,', line)
-            words.append(Morph(str1[0], str1[6], str1[1], str1[2]))
+            words.append(Morph(str1[0], str1[7], str1[1], str1[2]))
         else:
             if len(words) > 0:
-                sentence.append(words)
+                sentences.append(words)
                 words = []
 
-    for x in sentence[3]:
+    for x in sentences[3]:
         print x.surface,
+    print ""
+    for x in sentences[3]:
+        print x.base,
+    print ""
+    for x in sentences[3]:
+        print x.pos,
+    print ""
+    for x in sentences[3]:
+        print x.pos1,
+    print ""
+
+    for m in sentences[3]:
+        m.show()

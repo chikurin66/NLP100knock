@@ -23,7 +23,16 @@ Xという -> Y
 '''
 
 
+
 import CaboCha
+
+
+def find_same_chunk(x_list, y_list):
+    for x in x_list:
+        for y in y_list:
+            if x == y:
+                return x
+    return None
 
 if __name__ == '__main__':
 
@@ -53,7 +62,7 @@ if __name__ == '__main__':
         else:
             if noun == "None" and line.split("\t")[1].split(',')[0] == "名詞":
                 noun = line.split("\t")[1].split(',')[6]
-                section = section + "<n>"
+                section = section + noun
             else:
                 section = section + line.split("\t")[0]
 
@@ -63,12 +72,12 @@ if __name__ == '__main__':
     print ""
     '''
     word_destの中身：
-         <n>は 5 吾輩
-         <n>で 2 ここ
-         始めて 3 None
-         <n>という 4 人間
-         <n>を 5 もの
-         見た -1 None
+        吾輩は 5 吾輩
+        ここで 2 ここ
+        始めて 3 None
+        人間という 4 人間
+        ものを 5 もの
+        見た -1 None
     '''
     output_temp = list()
     output_list = list()
@@ -86,9 +95,41 @@ if __name__ == '__main__':
             print ""
         output_list.append(output_temp)
         output_temp = list()
+
+    print "output_list: "
     for x in output_list:
+        print "\t",
         for y in x:
             print y,
         print ""
 
-    for x in output_list:
+    for i, x_path in enumerate(output_list):
+        if x_path:
+            for j, y_path in enumerate(output_list[i+1:]):
+                if y_path:
+                    # find same chunk in x_path and y_path
+                    root = find_same_chunk(x_path, y_path)
+                    if y_path[0] == root:
+                        print x_path[0].replace(word_dest[i][2], 'X'),
+                        for x in x_path[1:]:
+                            if x != root:
+                                print "->", x,
+                            else:
+                                break
+                        print "->", y_path[0].replace(word_dest[i+j+1][2], 'Y')
+
+                    else:
+                        print x_path[0].replace(word_dest[i][2], 'X'),
+                        for x in x_path[1:]:
+                            if x != root:
+                                print "->", x,
+                            else:
+                                break
+                        print "|",
+                        print y_path[0].replace(word_dest[i+j+1][2], 'Y'),
+                        for y in y_path[1:]:
+                            if y != root:
+                                print "->", y,
+                            else:
+                                break
+                        print "|", root
