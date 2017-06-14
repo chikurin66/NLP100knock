@@ -25,6 +25,7 @@ def CreateDependency(sentences):
         dependencies.append('\n')
     return dependencies
 
+
 if __name__ == '__main__':
     sentences = knock41.CreateChunkList('../data/neko.cabocha')
 

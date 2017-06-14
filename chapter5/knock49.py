@@ -106,11 +106,11 @@ if __name__ == '__main__':
             for j, y_path in enumerate(output_list[i+1:]):
                 if y_path:
                     # find same chunk in x_path and y_path
-                    root = find_same_chunk(x_path, y_path)
-                    if y_path[0] == root:
+                    root_chunk = find_same_chunk(x_path, y_path)
+                    if y_path[0] == root_chunk:
                         print x_path[0].replace(word_dest[i][2], 'X'),
                         for x in x_path[1:]:
-                            if x != root:
+                            if x != root_chunk:
                                 print "->", x,
                             else:
                                 break
@@ -119,15 +119,15 @@ if __name__ == '__main__':
                     else:
                         print x_path[0].replace(word_dest[i][2], 'X'),
                         for x in x_path[1:]:
-                            if x != root:
+                            if x != root_chunk:
                                 print "->", x,
                             else:
                                 break
                         print "|",
                         print y_path[0].replace(word_dest[i+j+1][2], 'Y'),
                         for y in y_path[1:]:
-                            if y != root:
+                            if y != root_chunk:
                                 print "->", y,
                             else:
                                 break
-                        print "|", root
+                        print "|", root_chunk

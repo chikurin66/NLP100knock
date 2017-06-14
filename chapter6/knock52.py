@@ -1,30 +1,25 @@
 # coding: UTF-8
 
 '''
-51. 単語の切り出し
-空白を単語の区切りとみなし，50の出力を入力として受け取り，
-1行1単語の形式で出力せよ．ただし，文の終端では空行を出力せよ．
+52. ステミング
+51の出力を入力として受け取り，Porterのステミングアルゴリズムを適用し，単語と語幹をタブ区切り形式で出力せよ．
+Pythonでは，Porterのステミングアルゴリズムの実装としてstemmingモジュールを利用するとよい．
 '''
 
-import re
+from nltk import stem
 import knock50
+import knock51
 
 
-def separateIntoWords(sentences):
-    words = []
-    for sentence in sentences:
-        words_temp = sentence.split(' ')
-        for word in words_temp:
-            words.append(word)
-        words.append("")
-    return words
+def stemming(words):
+    stemmer = stem.PorterStemmer()
+    for word in words:
+        print "\t".join([word, stemmer.stem(word)])
 
 if __name__ == '__main__':
     with open("../data/nlp.txt", "r") as f:
         text = f.readlines()
         sentences = knock50.separateIntoSentences(text)
-        words = separateIntoWords(sentences)
-
-    for word in words:
-         print word
+        words = knock51.separateIntoWords(sentences)
+        stemming(words)
 
