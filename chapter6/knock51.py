@@ -23,6 +23,8 @@ if __name__ == '__main__':
         text = f.readlines()
         sentences = knock50.separateIntoSentences(text)
         words = separateIntoWords(sentences)
+    with open("../data/nlp_word.txt", "w") as g:
+        g.writelines(words)
 
     for word in words:
          print word

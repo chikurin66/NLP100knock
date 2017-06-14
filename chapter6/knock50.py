@@ -24,7 +24,8 @@ if __name__ == '__main__':
     with open("../data/nlp.txt", "r") as f:
         text = f.readlines()
         sentences = separateIntoSentences(text)
-
+    with open("../data/nlp_sentence.txt", "w") as g:
+        g.write("\n".join(sentences))
     for sentence in sentences:
         print sentence
 
