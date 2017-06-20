@@ -107,7 +107,7 @@ if __name__ == '__main__':
                 if y_path:
                     # find same chunk in x_path and y_path
                     root_chunk = find_same_chunk(x_path, y_path)
-                    if y_path[0] == root_chunk:
+                    if y_path[0] == root_chunk:  # |がいらない
                         print x_path[0].replace(word_dest[i][2], 'X'),
                         for x in x_path[1:]:
                             if x != root_chunk:
@@ -116,7 +116,7 @@ if __name__ == '__main__':
                                 break
                         print "->", y_path[0].replace(word_dest[i+j+1][2], 'Y')
 
-                    else:
+                    else:  # |がいる
                         print x_path[0].replace(word_dest[i][2], 'X'),
                         for x in x_path[1:]:
                             if x != root_chunk:
