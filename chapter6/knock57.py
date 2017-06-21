@@ -23,13 +23,19 @@ def make_dependency_tree(sent_num):
     # focus on one sentence
     dependencies = depe_list[sent_num]
 
+    # nodes_set = set()
     for dep in dependencies.findall('dep'):
         # make edge from governor to dependent
         # put id to avoid that same words are regarded as same node
-        G.edge(dep.find('governor').get('idx') + "_" + dep.find('governor').text,
-               dep.find('dependent').get('idx') + "_" + dep.find('dependent').text)
+        from_edge = dep.find('governor').get('idx') + "_" + dep.find('governor').text
+        to_edge = dep.find('dependent').get('idx') + "_" + dep.find('dependent').text
+        G.edge(from_edge, to_edge)
+        # nodes_set.add(from_edge)
+        # nodes_set.add(to_edge)
 
+    # G.body.append('{rank=same; "' + '"; "'.join(list(nodes_set)) + '";}')
+    print G.source
     G.render('../data/knock57_tree.gv', view=True)
 
 if __name__ == '__main__':
-    make_dependency_tree(4)
+    make_dependency_tree(1)
