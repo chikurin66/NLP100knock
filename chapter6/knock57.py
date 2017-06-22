@@ -38,4 +38,4 @@ def make_dependency_tree(sent_num):
     G.render('../data/knock57_tree.gv', view=True)
 
 if __name__ == '__main__':
-    make_dependency_tree(1)
+    make_dependency_tree(0)

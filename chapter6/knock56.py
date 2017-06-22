@@ -44,8 +44,10 @@ for l in coref_list:
 for key, value in repr_dict.items():
     for elem in value:
         sent_num, start_num, mention = elem
-        sentences[int(sent_num)-1].insert(int(start_num)-1+len(mention.split(" ")), "))")
-        sentences[int(sent_num)-1].insert(int(start_num)-1, "("+key+") ((")
+        # ここはミスってる．一文に二つの今日参照があった場合，ずれてしまう．
+        # printで制御すべきか？
+        sentences[int(sent_num)-1].insert(int(start_num)-1+len(mention.split(" ")), "}")
+        sentences[int(sent_num)-1].insert(int(start_num)-1, "("+key+") {")
 
 for sent in sentences:
     for word in sent:

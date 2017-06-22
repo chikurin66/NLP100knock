@@ -8,7 +8,7 @@ Stanford Core NLPを用い，入力テキストの解析結果をXML形式で得
 以下コマンド
 java -cp "/usr/local/lib/stanford-corenlp-full-2014-08-27/*"
 -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP
--annotators tokenize,ssplit,pos,lemma,ner,parse,dcoref
+-annotators tokenize,ssplit,pos,lemma,ner,depparse,dcoref
 -file /Users/yutoTakebayashi/PycharmProjects/NLP100Knock/data/nlp_sentence.txt
 '''
 
